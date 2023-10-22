@@ -61,7 +61,9 @@ class MapPublisher : public rclcpp::Node {
     }
   private:
     void timer_callback() {
-      auto msg = grid_map::GridMapRosConverter::toMessage(map_->getGridMap());
+      const auto now = node->now();
+      map.setTimestamp(now.nanoseconds());
+      const auto msg = grid_map::GridMapRosConverter::toMessage(map_->getGridMap());
       original_map_pub_->publish(std::move(msg));
     }
     rclcpp::TimerBase::SharedPtr timer_;
