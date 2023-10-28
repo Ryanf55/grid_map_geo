@@ -24,6 +24,10 @@ find_package(rclcpp REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(GDAL 3 REQUIRED)
 
+# macOS
+if(APPLE)
+  link_directories(/opt/homebrew/opt/yaml-cpp/lib)
+endif()
 
 # Reverse compatability for GDAL<3.5
 # https://gdal.org/development/cmake.html
