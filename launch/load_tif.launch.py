@@ -36,7 +36,7 @@ def generate_launch_description():
         name="tif_loader",
         parameters=[
             {"tif_path": LaunchConfiguration("tif_path")},
-            {"color_path": LaunchConfiguration("color_path")},
+            {"tif_color_path": LaunchConfiguration("tif_color_path")},
         ],
         output="screen",
         emulate_tty=True,
@@ -51,10 +51,8 @@ def generate_launch_description():
     )
 
     default_location = "sargans"
-    default_tif_file = "sertig.tif"
-    default_color_file = "sertig_color.tif"
-    # default_tif_file = "hinwil.tif"
-    # default_color_file = "hinwil_color.tif"
+    default_tif_file = "sargans.tif"
+    default_tif_color_file = "sargans_color.tif"
     return LaunchDescription(
         [
             DeclareLaunchArgument(
@@ -73,9 +71,9 @@ def generate_launch_description():
                 description="Full path to the elevation map file.",
             ),
             DeclareLaunchArgument(
-                "color_path",
+                "tif_color_path",
                 default_value=os.path.join(
-                    pkg_grid_map_geo, "resources", default_color_file
+                    pkg_grid_map_geo, "resources", default_tif_color_file
                 ),
                 description="Full path to the elevation texture file.",
             ),
