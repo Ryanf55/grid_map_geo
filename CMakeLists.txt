@@ -62,11 +62,6 @@ add_executable(test_tif_loader
   src/test_tif_loader.cpp
 )
 
-target_include_directories(test_tif_loader
-  PRIVATE
-  include
-)
-
 target_link_libraries(test_tif_loader
   ${PROJECT_NAME}
 )
