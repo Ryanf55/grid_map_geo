@@ -25,8 +25,13 @@ find_package(Eigen3 REQUIRED)
 find_package(GDAL 3 REQUIRED)
 
 # macOS
-if(APPLE)
-  link_directories(/opt/homebrew/opt/yaml-cpp/lib)
+if(${CMAKE_SYSTEM_NAME} MATCHES Darwin)
+  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES arm64)
+    link_directories(/opt/homebrew/opt/yaml-cpp/lib)
+  endif()
+  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES x84_64)
+    link_directories(/usr/local/opt/yaml-cpp/lib)
+  endif()
 endif()
 
 # Reverse compatability for GDAL<3.5
@@ -44,7 +49,6 @@ target_include_directories(${PROJECT_NAME}
   PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
-  ${GDAL_INCLUDE_DIR}
 )
 
 target_link_libraries(${PROJECT_NAME} Eigen3::Eigen GDAL::GDAL)
@@ -61,7 +65,6 @@ add_executable(test_tif_loader
 target_include_directories(test_tif_loader
   PRIVATE
   include
-  ${GDAL_INCLUDE_DIR}
 )
 
 target_link_libraries(test_tif_loader
