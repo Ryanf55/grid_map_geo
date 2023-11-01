@@ -31,7 +31,7 @@ def generate_launch_description():
     # tif loader node
     tif_loader = Node(
         package="grid_map_geo",
-        # namespace="grid_map_geo",
+        namespace="grid_map_geo",
         executable="test_tif_loader",
         name="tif_loader",
         parameters=[
