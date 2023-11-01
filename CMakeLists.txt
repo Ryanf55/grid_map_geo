@@ -24,15 +24,8 @@ find_package(rclcpp REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(GDAL 3 REQUIRED)
 
-# macOS
-if(${CMAKE_SYSTEM_NAME} MATCHES Darwin)
-  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES arm64)
-    link_directories(/opt/homebrew/opt/yaml-cpp/lib)
-  endif()
-  if(${CMAKE_SYSTEM_PROCESSOR} MATCHES x84_64)
-    link_directories(/usr/local/opt/yaml-cpp/lib)
-  endif()
-endif()
+find_package(yaml_cpp_vendor REQUIRED)
+link_directories(${yaml_cpp_vendor_LIBRARY_DIRS})
 
 # Reverse compatability for GDAL<3.5
 # https://gdal.org/development/cmake.html
