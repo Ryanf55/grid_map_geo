@@ -59,25 +59,36 @@ target_link_libraries(test_tif_loader
   ${PROJECT_NAME}
 )
 
-# Export
-ament_export_targets(${PROJECT_NAME}Targets HAS_LIBRARY_TARGET)
-ament_export_dependencies(GDAL)
-
 # Install
 install(
-  TARGETS
-  ${PROJECT_NAME}
-  test_tif_loader
-  EXPORT ${PROJECT_NAME}Targets
-  ARCHIVE DESTINATION lib/${PROJECT_NAME}
-  LIBRARY DESTINATION lib/${PROJECT_NAME}
-  RUNTIME DESTINATION lib/${PROJECT_NAME}
+  DIRECTORY include/
+  DESTINATION include/${PROJECT_NAME}
 )
 
 install(
-  DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION include/${PROJECT_NAME}
-  FILES_MATCHING PATTERN "*.hpp"
+  TARGETS
+  ${PROJECT_NAME}
+  EXPORT export_${PROJECT_NAME}
+  ARCHIVE DESTINATION lib/${PROJECT_NAME}
+  LIBRARY DESTINATION lib/${PROJECT_NAME}
+  RUNTIME DESTINATION bin/${PROJECT_NAME}
+)
+
+ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ament_export_dependencies(GDAL)
+
+# NOTE: if RUNTIME DESTINATION is set to bin/${PROJECT_NAME} the executable
+# is not found by ros2 launch:
+# 
+# Caught exception in launch (see debug for traceback): executable
+# 'test_tif_loader' not found on the libexec directory 
+# '<ws_path>/ros2-aerial/install/grid_map_geo/lib/grid_map_geo'
+install(
+  TARGETS
+  test_tif_loader
+  ARCHIVE DESTINATION lib/${PROJECT_NAME}
+  LIBRARY DESTINATION lib/${PROJECT_NAME}
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 install(DIRECTORY
