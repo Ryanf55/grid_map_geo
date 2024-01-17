@@ -72,12 +72,12 @@ $(function() {
   <div class="headertitle"><div class="title">grid_map_geo </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a><a href="https://github.com/ethz-asl/grid_map_geo/actions/workflows/build_test.yml"><img src="https://github.com/ethz-asl/grid_map_geo/actions/workflows/build_test.yml/badge.svg" alt="Build Test" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/ethz-asl/grid_map_geo/actions/workflows/build_test.yml"><img src="https://github.com/ethz-asl/grid_map_geo/actions/workflows/build_test.yml/badge.svg" alt="Build Test" style="pointer-events: none;" class="inline"/></a></p>
 <p >This package provides a georeferenced extension to the elevation map <a href="https://github.com/ANYbotics/grid_map">grid_map</a> using <a href="https://gdal.org/">GDAL</a>, library for raster and vector geospatial data formats</p>
 <p ><img src="https://user-images.githubusercontent.com/5248102/208767846-6511a150-9924-44ea-8b6e-41b57407e26e.png" alt="rviz_screenshot_2022_12_20-22_10_17" class="inline"/></p>
 <p ><b>Authors: Jaeyoung Lim<br  />
  Affiliation: <a href="https://asl.ethz.ch/">ETH Zurich, Autonomous Systems Lab</a><br  />
-</b> </p>
+</b></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Setup</h1>
 <p >Install the dependencies. This package depends on gdal, to read georeferenced images and GeoTIFF files.</p>
@@ -86,11 +86,14 @@ Setup</h1>
 <div class="line"># Assuming the package is cloned in the src folder of a ROS workspace...</div>
 <div class="line">rosdep install --from-paths src --ignore-src -y</div>
 </div><!-- fragment --><p >Build the package </p><div class="fragment"><div class="line">colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to grid_map_geo</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md2"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
 Running the package</h1>
 <p >The default launch file can be run as the following command. </p><div class="fragment"><div class="line">source install/setup.bash</div>
 <div class="line">ros2 launch grid_map_geo load_tif_launch.xml</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+API Documentation</h1>
+<p >Documentation for the C++ API in grid_map_geo is <a href="https://ethz-asl.github.io/grid_map_geo/index.html">here</a>. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
