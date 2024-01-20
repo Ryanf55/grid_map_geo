@@ -86,15 +86,15 @@ class GridMapGeo {
 
   /**
    * @brief Get the name of the coordinate frame of the dataset
-   * 
-   * @return std::string 
+   *
+   * @return std::string
    */
   std::string getCoordinateName() { return coordinate_name_; };
 
 
   /**
    * @brief Overloading terrain loading with only elevation
-   * 
+   *
    * @param map_path Path to dsm path (Supported formats are *.tif)
    */
   bool Load(const std::string& map_path) {

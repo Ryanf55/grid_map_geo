@@ -29,9 +29,8 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-up-to grid_map_g
 
 ## Running the package
 
-The default launch file can be run as the following command. 
+The default launch file can be run as the following command.
 ```
 source install/setup.bash
 ros2 launch grid_map_geo load_tif_launch.xml
 ```
-

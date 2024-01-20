@@ -1,6 +1,6 @@
 # Add gtest based cpp test target and link libraries
 find_package(ament_cmake_gtest)
-ament_add_gtest(${PROJECT_NAME}-test 
+ament_add_gtest(${PROJECT_NAME}-test
   main.cpp
   test_grid_map_geo.cpp
 )

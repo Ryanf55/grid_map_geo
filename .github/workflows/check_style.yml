@@ -1,6 +1,8 @@
+%YAML 1.2
+---
 name: Style Checks
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - master

@@ -8,10 +8,8 @@
   <maintainer email="ryanfriedman5410+github@gmail.com">Ryan Friedman</maintainer>
   <author>Jaeyoung Lim</author>
   <license>BSD-3</license>
-
   <url type="website">https://github.com/Jaeyoung-Lim/grid_map_geo</url>
   <url type="bugtracker">https://github.com/Jaeyoung-Lim/grid_map_geo/issues</url>
-
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>eigen</depend>
   <depend>grid_map_core</depend>
@@ -22,7 +20,6 @@
   <depend>yaml_cpp_vendor</depend>
   <exec_depend>ros2launch</exec_depend>
   <exec_depend>grid_map_rviz_plugin</exec_depend>
-
   <export>
     <build_type>ament_cmake</build_type>
   </export>

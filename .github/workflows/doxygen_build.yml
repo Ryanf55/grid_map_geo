@@ -1,5 +1,8 @@
+%YAML 1.2
+---
 name: Doxygen Build
-on:
+
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - 'ros2'
@@ -15,4 +18,3 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: mattnotmitt/doxygen-action@v1.9.5
-
